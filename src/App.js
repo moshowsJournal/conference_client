@@ -9,9 +9,9 @@ function App() {
     <Router>
           <Header />
           <Switch>
-              <Route exact="/" path="/" component={AddTalk} />
+              {/* <Route exact="/" path="/" component={AddTalk} />
               <Route exact="/add_attendees" path="/add_attendees" component={AddAttendees}/>
-              <Route path={`/add_attendee_talks/:talk_id`} component={AddAttendeeToList} />
+              <Route path={`/add_attendee_talks/:talk_id`} component={AddAttendeeToList} /> */}
           </Switch>
     </Router>
   );
