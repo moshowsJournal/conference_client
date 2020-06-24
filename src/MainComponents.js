@@ -18,7 +18,7 @@ export const AddTalk  = () => {
                         <button type="button" className="btn btn-primary"
                             onClick={()=>{
                                 setShowList(true);
-                                ProcessGetRequest('/api/get_talks').then(res =>{
+                                ProcessGetRequest(`${base_url}api/get_talks`).then(res =>{
                                     console.log(res);
                                     setTalks(res.talks);
                                 }).catch(err =>{
@@ -105,7 +105,7 @@ export const AddAttendeesList = ({attendees,talk_id,setTalk,talk}) => {
                                                     talk_id,
                                                     attendee_id :attendee.id
                                                 }
-                                                ProcessPostRequest('/api/add_to_talk',request_data).then(res =>{
+                                                ProcessPostRequest(`${base_url}api/add_to_talk`,request_data).then(res =>{
                                                     if(res.code !== 200){
                                                         return alert(res.message);
                                                     }
@@ -157,7 +157,7 @@ const AddTalkForm = () => {
                 <form method="POST" onSubmit={(event)=>{
                         event.preventDefault();
                         setLoadingStatus(true);
-                        ProcessPostRequest(`/api/add_talk`,talk).then(res=>{
+                        ProcessPostRequest(`${base_url}api/add_talk`,talk).then(res=>{
                             setLoadingStatus(false);
                             if(res.code !== 200){
                                return alert(res.message);
@@ -256,7 +256,7 @@ export const AddAttendeeToList = () => {
     const {talk_id} = useParams();
     console.log(talk_id);
     useEffect(()=>{
-        ProcessGetRequest(`/api/get_attendees?talk_id=${talk_id}`).then(res =>{
+        ProcessGetRequest(`${base_url}api/get_attendees?talk_id=${talk_id}`).then(res =>{
             setAttendee(res.attendees);
             setTalk(res.talk);
         }).catch(err =>{
@@ -293,7 +293,7 @@ export const AddAttendees = () => {
                         <button type="button" className="btn btn-primary"
                             onClick={()=>{
                                 setShowList(true)
-                                ProcessGetRequest('/api/get_attendees').then(res => {
+                                ProcessGetRequest(`${base_url}api/get_attendees`).then(res => {
                                     setAttendee(res.attendees);
                                 }).catch(err => {
                                     console.log(err);
@@ -328,7 +328,7 @@ export const AddAttendeesForm = () => {
             onSubmit={(event)=>{
                 event.preventDefault();
                 setLoadingStatus(true);
-                ProcessPostRequest('/api/create_attendees',attendee).then(res=>{
+                ProcessPostRequest(`${base_url}api/create_attendees`,attendee).then(res=>{
                     setLoadingStatus(false);
                     if(res.code !== 200){
                         return alert(res.message);

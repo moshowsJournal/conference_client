@@ -21,4 +21,4 @@ export const ProcessGetRequest = async (url) => {
         console.log(err);
     }
 }
-export const base_url = 'https://0c1cc074c904.ngrok.io/';
+export const base_url = 'https://gentle-sea-25100.herokuapp.com/';

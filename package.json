@@ -27,7 +27,6 @@
     "npm": "6.9.0",
     "node": "12.2.0"
   },
-  "proxy": "https://gentle-sea-25100.herokuapp.com/",
   "browserslist": {
     "production": [
       ">0.2%",
