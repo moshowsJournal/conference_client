@@ -4,7 +4,9 @@ import axios from 'axios'
 export const ProcessPostRequest = async (url,request_data) => {
     try{
         console.log(request_data);
-        let res = await axios.post(url,request_data);
+        let res = await axios.post(url,request_data,{
+            headers: {'Content-Type':'application/json'}
+        });
         return res.data.response;
     }catch(err){
         console.log(err);
